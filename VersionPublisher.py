@@ -2,7 +2,7 @@ import os
 import sys
 
 """
-This file defines the functions to copy files from source-path to destination-path
+This file defines the functions manage the files between source-path and destination-path
 Used as a shortcut to publish new versions easier
 
 Created:    2017-03-06
@@ -10,16 +10,16 @@ By:         Michael Palarya
 """
 
 
-def delete_old_files(dir, ext, keep_n_recent):
+def delete_old_files(directory, ext, keep_n_recent):
     """
     deletes 'ext' files from dir, while keeping n most recent files
-    :param dir:
+    :param directory:
     :param ext:
     :param keep_n_recent:
     :return: void
     """
-    print ">>> Trying to remove older versions from: %s\n" % dir
-    dst_files = get_files(dir, ext, sort=True)
+    print ">>> Trying to remove older versions from: %s\n" % directory
+    dst_files = get_files(directory, ext, sort=True)
     if 0 < keep_n_recent < len(dst_files):
         for i in range(len(dst_files) - keep_n_recent):
             print "\t removing: %s" % dst_files[i]
